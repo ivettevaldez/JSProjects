@@ -5,10 +5,10 @@ export default class TodoItem extends Component {
   getStyle = () => {
     return {
       backgroundColor: '#f4f4f4',
-        padding: '10px',
-        borderBottom: '1px #ccc dotted',
-        textDecoration: this.props.todo.completed ? 'line-through' : 'none'
-      }
+      padding: '10px',
+      borderBottom: '1px #ccc dotted',
+      textDecoration: this.props.todo.completed ? 'line-through' : 'none'
+    }
   }
 
   render() {
@@ -18,7 +18,7 @@ export default class TodoItem extends Component {
       <div style={this.getStyle()}>
         <p>
           <input type="checkbox" onChange={this.props.toggleCompleted.bind(this, id)} /> {' '}
-          { title }
+          {title}
           <button onClick={this.props.deleteTodo.bind(this, id)} style={btnStyle}>X</button>
         </p>
       </div>

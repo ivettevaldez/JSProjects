@@ -21,12 +21,14 @@ export default class App extends Component {
 
   // Toggle Complete
   toggleCompleted = (id) => {
-    this.setState({ todos: this.state.todos.map(todo => {
-      if(todo.id === id) {
-        todo.completed = !todo.completed
-      }
-      return todo;
-    }) });
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo;
+      })
+    });
   }
 
   // Delete Todo
@@ -41,7 +43,7 @@ export default class App extends Component {
       title,
       completed: false
     }).then(res => this.setState({ todos: [...this.state.todos, res.data] }));
-    
+
   }
 
   render() {
