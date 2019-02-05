@@ -7,14 +7,14 @@
 }
 
 .weatherExtraInfoCont {
-  width: 40%;
+  width: 30%;
   display: inline-block;
   line-height: 28px;
   text-align: left;
 }
 
 .weatherTemperatureCont {
-  width: 60%;
+  width: 50%;
   display: inline-block;
 }
 
@@ -33,7 +33,7 @@
 .extraInfoText {
   display: block;
   color: #1535C5;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
 }
 
