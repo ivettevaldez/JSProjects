@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import transformWeather from "../../services/TransformWeather";
-import getUrlWeatherByCity from "../../services/GetUrlWeatherByCity"
+import getUrlWeatherByCity from "../../services/GetUrlWeatherByCity";
 import Location from "./Location";
 import WeatherData from "./WeatherData";
 import "./styles.css";
@@ -47,7 +47,7 @@ class WeatherLocation extends Component {
   };
 
   render() {
-    const { onWeatherLocationClick } = this.props
+    const { onWeatherLocationClick } = this.props;
     const { city, data } = this.state;
 
     return (
@@ -61,7 +61,7 @@ class WeatherLocation extends Component {
 
 WeatherLocation.propTypes = {
   city: PropTypes.string.isRequired,
-  onWeatherLocationClick: PropTypes.func.isRequired,
+  onWeatherLocationClick: PropTypes.func.isRequired
 };
 
 export default WeatherLocation;

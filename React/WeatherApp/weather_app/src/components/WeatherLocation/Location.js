@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import './styles.css'
+import PropTypes from "prop-types";
+import "./styles.css";
 
 const Location = ({ city }) => (
   <div className="locationCont">
@@ -9,7 +9,7 @@ const Location = ({ city }) => (
 );
 
 Location.propTypes = {
-  city: PropTypes.string.isRequired,
-}
+  city: PropTypes.string.isRequired
+};
 
 export default Location;

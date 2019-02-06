@@ -19,7 +19,7 @@ WeatherData.propTypes = {
     weatherState: PropTypes.string.isRequired,
     humidity: PropTypes.number.isRequired,
     wind: PropTypes.number.isRequired
-  }),
+  })
 };
 
 export default WeatherData;
