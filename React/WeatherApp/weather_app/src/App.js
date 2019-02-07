@@ -42,7 +42,7 @@ class App extends Component {
             />
           </Col>
           <Col xs={12} md={6}>
-            <Paper zDepth={4}>
+            <Paper elevation={4}>
               <div className="details">
                 {!city ? (
                   <h2>No city selected</h2>
