@@ -3,14 +3,13 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
+import { connect } from "react-redux";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import { createStore } from "redux";
 import LocationList from "./components/LocationList";
 import ExtendedForecast from "./components/ExtendedForecast";
-import "./App.css";
+import { setCity } from "./actions";
 
-const store = createStore(() => {}, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import "./App.css";
 
 const cities = [
   "Culiacan,mx", 
@@ -27,10 +26,7 @@ class App extends Component {
 
   handleSelectedLocation = city => {
     this.setState({ city });
-    console.log("handleSelectedLocation");
-
-    const action = { type: "setCity", value: city };
-    store.dispatch(action);
+    this.props.setCity(city);
   };
 
   render() {
@@ -71,4 +67,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToPropsActions = dispatch => ({
+  setCity: value => dispatch(setCity(value))
+});
+
+const AppConnected = connect(null, mapDispatchToPropsActions)(App);
+
+export default AppConnected;
