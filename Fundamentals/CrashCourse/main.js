@@ -26,10 +26,10 @@
 // console.log(typeof name);
 
 // // String concatenation.
-// console.log('My name is ' + name + ' and I am ' + age);
+// console.log('Her name is ' + name + ' and she is ' + age);
 
 // // Template String.
-// console.log(`My name is ${name} and I am ${age}`);
+// console.log(`Her name is ${name} and she is ${age}`);
 
 // // Strings.
 // const s = 'Hello World';
@@ -45,8 +45,8 @@
 
 // const fruits = ['apples', 'oranges', 'pears'];
 // fruits[3] = 'grapes';
-// fruits.push('mangos');
-// fruits.unshift('strawberries');
+// fruits.push('mangos'); // Add new item to the end of an array.
+// fruits.unshift('strawberries'); // Add new item to the beginning of an array.
 // fruits.pop();
 // console.log(fruits);
 // console.log('Fruits is an array: ' + Array.isArray(fruits));
@@ -94,7 +94,7 @@
 
 // // JSON
 // const todoJSON = JSON.stringify(todos);
-// console.log(todoJSON)
+// console.log(todoJSON);
 
 // // For.
 // for(let i = 0; i < 10; i++) {
@@ -127,7 +127,7 @@
 //     return todo.isCompleted === true;
 // }).map(function(todo) {
 //     return todo.text;
-// })
+// });
 
 // console.log(todoCompleted);
 
@@ -135,7 +135,7 @@
 // const x = 6;
 // const y = 11;
 
-// if (x > 10) {
+// if (x === 10) {
 //     console.log('x is 10');
 // } else if (x > 10) {
 //     console.log('x is greater than 10');
@@ -172,7 +172,8 @@
 
 // const addNumbers3 = num1 => num1 + 5;
 
-// console.log(addNumbers2(5, 5));
+// console.log(addNumbers1(10, 10));
+// console.log(addNumbers2(3, 3));
 // console.log(addNumbers3(5));
 
 // todos.forEach((todo) => console.log(todo)); 
@@ -270,7 +271,7 @@ myForm.addEventListener('submit', onSubmit);
 function onSubmit(e) {
     e.preventDefault();
 
-    if(nameInput.value === '' || emailInput.value === '') {
+    if (nameInput.value === '' || emailInput.value === '') {
         msg.classList.add('error');
         msg.innerHTML = 'Please enter all fields';
 
