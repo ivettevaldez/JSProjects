@@ -8,9 +8,12 @@ const app = props => {
       { name: 'Ivette', age: 14 },
       { name: 'Robert', age: 25 },
       { name: 'Sylvia', age: 32 },
-    ],
-    otherState: 'Some other value'
+    ]
   });
+
+  const [ otherState, setOtherState] = useState({otherState: 'Some other value'});
+
+  console.log(personsState, otherState);
 
   const switchNameHandler = () => {
     // console.log('Was clicked!');
