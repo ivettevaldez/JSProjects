@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import UserOutput from './User/UserOutput';
 import './App.css';
+
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
   state = {
@@ -11,7 +13,7 @@ class App extends Component {
     ]
   };
 
-  nameChangedHandler = (event) => {
+  userNameChangedHandler = (event) => {
     this.setState({
       users: [
         { userName: event.target.value },
@@ -24,19 +26,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello world!</h1>
-        <UserOutput 
-          userName={this.state.users[0].userName}
-          changed={this.nameChangedHandler}>
+        <UserInput 
+          changed={this.userNameChangedHandler}
+          currentName={this.state.users[0].userName} />
+
+        <UserOutput userName={this.state.users[0].userName} >
           Read books
         </UserOutput>
-        <UserOutput 
-          userName={this.state.users[1].userName}>
+        <UserOutput userName={this.state.users[1].userName} >
             Watch TV
         </UserOutput>
-        <UserOutput 
-          userName={this.state.users[2].userName}>
-            Read the Bible
+        <UserOutput userName={this.state.users[2].userName} >
+            Listen to music
         </UserOutput>
       </div>
     );
