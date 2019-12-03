@@ -1,19 +1,21 @@
 import React from 'react';
 
-const char = ( props ) => {
+const char = (props) => {
     const style = {
         display: 'inline-block',
         padding: '16px',
-        textAlign: 'center',
         margin: '16px',
+        textAlign: 'center',
         border: '1px solid black'
     };
 
-    return <label 
-                onClick={props.click}
-                style={style} >
-        {props.value}
-    </label>;
+    return (
+        <div 
+            style={style}
+            onClick={props.click}>
+                {props.value}
+        </div>
+    );
 };
 
 export default char;

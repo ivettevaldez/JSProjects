@@ -1,16 +1,18 @@
 import React from 'react';
 
-const validation = ( props ) => {
+const validation = (props) => {
     const minLength = 5;
-    let result = null;
+    let message = "Text too short!";
 
-    if (props.inputLength < minLength) {
-        result = "Text too short";
-    } else {
-        result = "Text long enough";
+    if (props.inputLength >= minLength) {
+        message = "Text long enough";
     }
 
-    return <p>{ result }</p>;
+    return (
+        <div>
+            <p>{message}</p>
+        </div>
+    );
 };
 
 export default validation;

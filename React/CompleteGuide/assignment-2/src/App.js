@@ -6,51 +6,43 @@ import Char from './Char/Char';
 
 class App extends Component {
   state = {
-    inputValue: [],
-    inputLength: 0
+    inputValue: ''
   };
 
-  inputChangedHandler = ( event ) => {
+  inputChangedHandler = (event) => {
     this.setState({
-      inputValue: event.target.value.split(''),
-      inputLength: event.target.value.length
+      inputValue: event.target.value
     });
   };
 
-  deleteCharHandler = ( charIndex ) => {
-    const chars = [...this.state.inputValue];
-    chars.splice(charIndex, 1);
+  deleteCharHandler = (index) => {
+    const text = this.state.inputValue.split('');
+    text.splice(index, 1);
+    const updatedText = text.join('');
+
     this.setState({
-      inputValue: chars,
-      inputLength: chars.length
+      inputValue: updatedText
     });
   };
 
   render() {
-    let chars = (
-      <div>
-        {this.state.inputValue.map((char, index) => {
-          return <Char 
-            key={index}
-            value={char}
-            click={() => this.deleteCharHandler(index)} />
-        })}
-      </div> 
-    );
+    const charList = this.state.inputValue.split('').map((char, index) => {
+      return <Char 
+        key={index}
+        value={char}
+        click={() => this.deleteCharHandler(index)} />
+    });
 
     return (
       <div className="App">
         <h1>Assignment 2</h1>
         <input 
           type="text"
-          value={this.state.inputValue.join('')}
-          onChange={(event) => this.inputChangedHandler(event)} />
-        <p>
-          Input text has {this.state.inputLength} characters
-        </p>
-        <Validation 
-          inputLength={this.state.inputLength} />
-        {chars}
+          value={this.state.inputValue}
+          onChange={this.inputChangedHandler} />
+        <p>Input text has {this.state.inputValue.length} characters</p>
+        <Validation inputLength={this.state.inputValue.length} />
+        {charList}
       </div>
     );
   }
