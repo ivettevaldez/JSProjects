@@ -1,7 +1,22 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
+
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
+
+const StyledButton = styled.button`
+  background-color: ${props => props.show ? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid black;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${props => props.show ? 'salmon' : 'lightgreen'};
+    color: black;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -52,19 +67,6 @@ class App extends Component {
   };
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid black',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    };
-
     let people = null;
 
     if (this.state.showPeople) {
@@ -80,12 +82,6 @@ class App extends Component {
           })}
         </div> 
       );
-
-      buttonStyle.backgroundColor = 'red';
-      buttonStyle[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'white'
-      }
     }
 
     const classes = [];
@@ -97,21 +93,19 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi, I'm a React App</h1>
-          <p className={classes.join(' ')}>This is really working!</p>
-          <button 
-            style={buttonStyle}
-            onClick={this.togglePeopleHandler}>
-              Toggle People
-          </button>
-          
-          { people }
-        </div>
-      </StyleRoot>
+      <div className="App">
+        <h1>Hi, I'm a React App</h1>
+        <p className={classes.join(' ')}>This is really working!</p>
+        <StyledButton 
+          onClick={this.togglePeopleHandler}
+          show={this.state.showPeople} >
+            Toggle People
+        </StyledButton>
+        
+        { people }
+      </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
