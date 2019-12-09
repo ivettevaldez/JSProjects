@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 import classes from './App.css';
+
+import withClass from '../hoc/withClass';
+import Aux from '../hoc/Aux';
+
 import Cockpit from '../components/Cockpit/Cockpit';
 import People from '../components/People/People';
 
@@ -19,7 +23,8 @@ class App extends Component {
     ],
     otherState: 'Some other value',
     showPeople: false,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -60,8 +65,11 @@ class App extends Component {
     const people = [...this.state.people];
     people[personIndex] = person;
 
-    this.setState({
-      people: people
+    this.setState((prevState, props) => {
+      return {
+        people: people,
+        changeCounter: this.state.changeCounter + 1
+      };
     });
   };
 
@@ -93,7 +101,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <Aux>
         <button onClick={() => {this.setState({showCockpit: false})}}>
           Remove Cockpit
         </button>
@@ -108,9 +116,9 @@ class App extends Component {
         }
           
         { people }
-      </div>
+      </Aux>
     );
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
