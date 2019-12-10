@@ -46,14 +46,18 @@ class People extends PureComponent {
   render () {
     console.log('[People.js] rendering...');
 
-    return this.props.people.map((person, index) => {
-      return <Person 
-        key={person.id}
-        name={person.name} 
-        age={person.age}
-        click={() => this.props.clicked(index)}
-        changed={(event) => this.props.changed(event, person.id)} />
-    });
+    return (this.props.people.map((person, index) => {
+        return (
+          <Person 
+            key={person.id}
+            name={person.name} 
+            age={person.age}
+            click={() => this.props.clicked(index)}
+            changed={(event) => this.props.changed(event, person.id)} 
+          />
+        );
+      })
+    );
   }
 }
 
