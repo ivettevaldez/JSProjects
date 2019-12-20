@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
-import Course from './containers/Course/Course';
+// import Course from './containers/Course/Course';
 import Users from './containers/Users/Users';
 
 import './App.css';
@@ -29,7 +29,7 @@ class App extends Component {
             <Switch>
               <Redirect from="/all-courses" to="/courses" />
               <Route path="/users" component={Users} />
-              <Route path="/courses/:id/:title" component={Course} />
+              {/* <Route path="/courses/:id" component={Course} /> */}
               <Route path="/courses" component={Courses} />
               <Route render={() => <h1>Not Found</h1>} />
             </Switch>
