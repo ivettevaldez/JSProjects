@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import Course from '../Course/Course';
 
@@ -27,18 +27,15 @@ class Courses extends Component {
                 {
                     this.state.courses.map(course => {
                         return (
-                            <article 
-                                className="Course" 
-                                key={course.id}>
-                                    <NavLink 
-                                        to={{
-                                            pathname: this.props.match.url + "/" + course.id,
-                                            search: "?title=" + course.title
-                                        }}
-                                    >
-                                        {course.title}
-                                    </NavLink>
-                            </article>);
+                            <Link 
+                                key={course.id}
+                                to={{
+                                    pathname: this.props.match.url + "/" + course.id + "/" + course.title,
+                                }}>
+                                <article className="Course" >
+                                    {course.title}
+                                </article>
+                            </Link>);
                     })
                 }
             </section>
