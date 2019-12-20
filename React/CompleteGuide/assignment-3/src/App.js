@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -29,8 +28,12 @@ class App extends Component {
               </nav>
             </header>
 
-            <Route path="/users" component={Users} />
-            <Route path="/courses" component={Courses} />
+            <Switch>
+              <Redirect from="/all-courses" to="/courses" />
+              <Route path="/users" exact component={Users} />
+              <Route path="/courses" component={Courses} />
+              <Route render={() => <h1>Not Found</h1>} />
+            </Switch>
 
             <ol style={{textAlign: 'left'}}>
               <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>

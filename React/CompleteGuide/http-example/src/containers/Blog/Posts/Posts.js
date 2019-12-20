@@ -4,16 +4,12 @@ import axios from '../../../axios';
 
 import Post from '../../../components/Post/Post';
 import FullPost from '../FullPost/FullPost';
-import './Posts.css';
 
-// import FullPost from '../FullPost/FullPost';
-// import NewPost from '../NewPost/NewPost';
+import './Posts.css';
 
 class Posts extends Component {
     state = {
         posts: []
-        // selectedPostId: null,
-        // error: false
     }
 
     componentDidMount() {
