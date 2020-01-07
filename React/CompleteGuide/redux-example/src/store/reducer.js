@@ -32,6 +32,19 @@ const reducer = (state = initialState, action) => {
                     {id: new Date(), value: state.counter}
                 )
             }
+        case 'DELETE_RESULT':
+            // First way: Make a copy of the current state (results).
+            // const id = 2;
+            // const newArray = [...state.results];
+            // newArray.results.splice(id, 1);
+
+            // Second way: Use filter to do a copy of the current state just with the required elements.
+            const updatedArray = state.results.filter(result => result.id !== action.resultElementId);
+
+            return {
+                ...state,
+                results: updatedArray
+            }            
         default:
             return state;
     }
