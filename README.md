@@ -1,2 +1,2 @@
-# JSProjects
-All related to JavaScript (frameworks, libraries, etc.) projects.
+# JavaScript Projects
+All related to JavaScript (frameworks, libraries, etc.) projects. It contains stuff like: React.
